@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+</head>
+<body>
+    <h1>Chatbot</h1>
+    <div id="chatbox"></div>
+    <input type="text" id="userInput" placeholder="Ask a question...">
+    <button onclick="askQuestion()">Ask</button>
+
+    <script>
+        const chatbox = document.getElementById('chatbox');
+        const userInput = document.getElementById('userInput');
+
+        function askQuestion() {
+            const question = userInput.value;
+            chatbox.innerHTML += `<p>User: ${question}</p>`;
+
+            // You can replace this part with a backend API call to get the answer
+            // For simplicity, I'm using a static list of Q&A here
+            const answers = [
+                "Answer 1",
+                "Answer 2",
+                "Answer 3",
+                "Answer 4",
+                "Answer 5",
+            ];
+
+            const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
+            chatbox.innerHTML += `<p>Bot: ${randomAnswer}</p>`;
+            userInput.value = '';
+        }
+    </script>
+</body>
+</html>
